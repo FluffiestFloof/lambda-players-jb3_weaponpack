@@ -1,0 +1,32 @@
+VertexLitGeneric
+{
+	$basetexture "lambdaplayers/obrez/obrez_albedo"
+	$bumpmap "lambdaplayers/obrez/obrez_normal"
+	$surfaceprop Metal
+
+	$detail "models/blood"
+	$detailscale 2.6
+	$detailblendfactor 0
+
+	$normalmapalphaenvmapmask 1
+	$envmaptint "[0.70 0.70 0.70]"
+	$envmapfresnel 1
+
+	$detailamount 0
+	$model 1
+	$mraotexture "lambdaplayers/obrez/obrez_mrao"
+
+	Proxies
+	{
+		WeaponBlood
+		{
+			resultVar "$detailAmount"
+		}
+
+		Equals
+		{
+			srcVar1 "$detailAmount"
+			resultVar "$detailblendfactor"
+		}
+	}
+}

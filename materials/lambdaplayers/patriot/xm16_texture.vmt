@@ -1,0 +1,18 @@
+VertexLitGeneric
+{
+    $basetexture "lambdaplayers\patriot\defuse"
+    $bumpmap "lambdaplayers\patriot\normal"
+    $phongexponenttexture "lambdaplayers\patriot\exponent"
+    //$phongexponent 14
+    $phong 1
+    $phongboost "1.33"
+    $phongtint "[1 1 1]"
+    $phongfresnelranges "[1 3 9]"
+    $envmap env_cubemap
+    $normalmapalphaenvmapmask 1
+    $envmaptint "[0.1 0.12 0.14]"
+
+    //$halflambert 1
+
+    $ambientocclusion 1
+}

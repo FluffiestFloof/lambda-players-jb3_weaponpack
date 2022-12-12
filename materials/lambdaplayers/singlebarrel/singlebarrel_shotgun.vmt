@@ -1,0 +1,12 @@
+VertexLitGeneric
+{
+	$basetexture "lambdaplayers/singlebarrel/singlebarrel_shotgun_d"
+	$bumpmap "lambdaplayers/singlebarrel/singlebarrel_shotgun_n"
+
+	$normalmapalphaenvmapmask 1
+	$envmaptint "[0.70 0.70 0.70]"
+	$envmapfresnel 1
+
+	$model 1
+	$mraotexture "lambdaplayers/singlebarrel/singlebarrel_shotgun_mrao"
+}

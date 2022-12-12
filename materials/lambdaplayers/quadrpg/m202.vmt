@@ -1,0 +1,12 @@
+VertexLitGeneric
+{
+	$basetexture "lambdaplayers/quadrpg/m202_albedo"
+	$bumpmap "lambdaplayers/quadrpg/m202_normal"
+
+	$normalmapalphaenvmapmask 1
+	$envmaptint "[0.70 0.70 0.70]"
+	$envmapfresnel 1
+
+	$model 1
+	$mraotexture "lambdaplayers/quadrpg/m202_mrao"
+}

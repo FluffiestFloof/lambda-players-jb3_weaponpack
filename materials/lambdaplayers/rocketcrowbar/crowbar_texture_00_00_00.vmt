@@ -1,0 +1,35 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "lambdaplayers/rocketcrowbar/crowbar_texture_00_00_00"
+	"$bumpmap" "models/Weapons/v_crowbar/crowbar_normal"
+//	"$envmap" "Environment Maps/specular"
+//	"$envmaptint" "[ .64 .64 .64 ]"
+//	"$envmap" "env_cubemap"
+//	"$normalmapalphaenvmapmask" 1
+
+// -- From here down is new stuff which will only be applied if $phong is set to 1 --
+	"$phong" "1"
+//	"$lightwarptexture" "models/alyx/skin_lightwarp"
+	"$phongexponent" "15"
+	"$phongboost"	"1"
+	"$phongfresnelranges"	"[.1 0.4 2]"
+
+	// Blood effects
+	$detail "models/blood.vtf"
+	$detailscale "1.8"
+	$detailblendfactor .001
+	$detailblendmode 0
+	$detailAmount 0
+	Proxies
+	{
+		WeaponBlood
+		{
+			resultVar $detailAmount
+		}
+		Equals
+		{
+			srcVar1 $detailAmount
+			resultVar $detailblendfactor			
+		}
+	}
+}

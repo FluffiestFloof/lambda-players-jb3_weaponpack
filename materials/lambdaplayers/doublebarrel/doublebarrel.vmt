@@ -1,0 +1,35 @@
+"VertexlitGeneric"
+{
+	$basetexture "lambdaplayers/doublebarrel/v_doublebarrel"
+	$bumpmap "lambdaplayers/doublebarrel/v_doublebarrel_n"
+	
+	//$phong "1"
+	//$phongexponenttexture	"lambdaplayers/doublebarrel/v_doublebarrel_e"
+	//$phongboost				0.1
+	//$phongfresnelranges		"[0 0.5 1]"
+	"$normalmapalphaenvmapmask" "1"
+	"$model" "1"
+	
+	"$envmaptint" "[0.8 0.8 0.8]"
+	"$envmapcontrast" "0.6"
+	"$envmapsaturation" "0.1"
+
+	// Blood effects
+	$detail "models/blood.vtf"
+	$detailscale "3.0"
+	$detailblendfactor .001
+	$detailblendmode 0
+	$detailAmount 0
+	Proxies
+	{
+		WeaponBlood
+		{
+			resultVar $detailAmount
+		}
+		Equals
+		{
+			srcVar1 $detailAmount
+			resultVar $detailblendfactor			
+		}
+	}
+}

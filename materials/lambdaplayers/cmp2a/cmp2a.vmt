@@ -1,0 +1,12 @@
+VertexLitGeneric
+{
+	$basetexture "lambdaplayers/cmp2a/cmp2a_d"
+	$bumpmap "lambdaplayers/cmp2a/cmp2a_n"
+
+	$normalmapalphaenvmapmask 1
+	$envmaptint "[0.70 0.70 0.70]"
+	$envmapfresnel 1
+
+	$model 1
+	$mraotexture "lambdaplayers/cmp2a/cmp2a_mrao"
+}
