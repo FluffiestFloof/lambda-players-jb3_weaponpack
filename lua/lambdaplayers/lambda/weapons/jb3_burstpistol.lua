@@ -35,7 +35,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             bullettbl.Force = 6
             bullettbl.HullSize = 5
             bullettbl.Num = 1
-            bullettbl.TracerName = "Tracer"
+            bullettbl.TracerName = "ubttracer"
             bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
             bullettbl.Src = wepent:GetPos()
             bullettbl.Spread = Vector( 0.05, 0.05, 0 )

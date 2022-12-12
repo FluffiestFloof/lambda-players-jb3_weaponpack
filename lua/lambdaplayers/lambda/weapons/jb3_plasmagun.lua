@@ -1,5 +1,6 @@
 local random = math.random
 local CurTime = CurTime
+local util_Effect = util.Effect
 local Clamp = math.Clamp
 local bullettbl = {}
 
@@ -39,17 +40,17 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             end
             wepent.BulletSpent = wepent.BulletSpent + 1
 
-            local spred = Clamp( ( 0.1 + ( wepent.BulletSpent * 0.001 )) , 0.1, 0.2 )
+            local spred = Clamp( ( 0.05 + ( wepent.BulletSpent * 0.001 )) , 0.05, 0.2 )
 
             bullettbl.Attacker = self
             bullettbl.Damage = 2
             bullettbl.Force = 2
             bullettbl.HullSize = 5
             bullettbl.Num = 1
-            bullettbl.TracerName = "LaserTracer"
+            bullettbl.TracerName = "demon_tracer_laser"
             bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
             bullettbl.Src = wepent:GetPos()
-            bullettbl.Spread = Vector( spred, spred*2, 0 )
+            bullettbl.Spread = Vector( 0.05+spred, spred*2, 0 )
             bullettbl.IgnoreEntity = self
             
             self.l_WeaponUseCooldown = CurTime() + Clamp( ( 1 / ( wepent.BulletSpent ) ), 0.005, 0.1 )
