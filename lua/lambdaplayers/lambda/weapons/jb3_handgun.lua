@@ -35,7 +35,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             bullettbl.TracerName = "none"
             bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
             bullettbl.Src = wepent:GetPos()
-            bullettbl.Spread = Vector( 0.17, 0.17, 0 )
+            bullettbl.Spread = Vector( 0.15, 0.15, 0 )
             bullettbl.IgnoreEntity = self
             
             self.l_WeaponUseCooldown = CurTime() + 0.8
