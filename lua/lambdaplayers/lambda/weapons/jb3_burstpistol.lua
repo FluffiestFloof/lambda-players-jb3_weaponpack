@@ -35,7 +35,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             bullettbl.Force = 6
             bullettbl.HullSize = 5
             bullettbl.Num = 1
-            bullettbl.TracerName = "Tracer"
+            bullettbl.TracerName = "ubttracer"
             bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
             bullettbl.Src = wepent:GetPos()
             bullettbl.Spread = Vector( 0.05, 0.05, 0 )
@@ -51,6 +51,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
                 wepent:EmitSound( "lambdaplayers/weapons/burstpistol/fire1.mp3", 75, 100, 1, CHAN_WEAPON )
                 self:HandleMuzzleFlash( 1 )
                 self:HandleShellEject( "ShellEject", Vector( 1, 4, 0 ), Angle( -90, 0, 0 ) )
+                bullettbl.Src = wepent:GetPos()
                 wepent:FireBullets( bullettbl )
                 bullettbl.Spread = Vector( 0.07, 0.3, 0 )
             end)
@@ -59,6 +60,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
                 wepent:EmitSound( "lambdaplayers/weapons/burstpistol/fire1.mp3", 75, 100, 1, CHAN_WEAPON )
                 self:HandleMuzzleFlash( 1 )
                 self:HandleShellEject( "ShellEject", Vector( 1, 4, 0 ), Angle( -90, 0, 0 ) )
+                bullettbl.Src = wepent:GetPos()
                 wepent:FireBullets( bullettbl )
             end)
 
