@@ -40,7 +40,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             end
             wepent.BulletSpent = wepent.BulletSpent + 1
 
-            local spred = Clamp( ( 0.05 + ( wepent.BulletSpent * 0.001 )) , 0.05, 0.2 )
+            local spred = Clamp( (  wepent.BulletSpent * 0.001 ) , 0.05, 0.2 )
 
             bullettbl.Attacker = self
             bullettbl.Damage = 2
@@ -50,10 +50,10 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             bullettbl.TracerName = "demon_tracer_laser"
             bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
             bullettbl.Src = wepent:GetPos()
-            bullettbl.Spread = Vector( 0.05+spred, spred*2, 0 )
+            bullettbl.Spread = Vector( spred, spred, 0 )
             bullettbl.IgnoreEntity = self
             
-            self.l_WeaponUseCooldown = CurTime() + Clamp( ( 1 / ( wepent.BulletSpent ) ), 0.005, 0.1 )
+            self.l_WeaponUseCooldown = CurTime() + Clamp( ( 1 / ( wepent.BulletSpent ) ), 0.004, 0.4 )
 
             wepent:EmitSound( "lambdaplayers/weapons/plasmaar/plasma"..random( 1, 8 )..".mp3", 80, 100, 1, CHAN_WEAPON )
 

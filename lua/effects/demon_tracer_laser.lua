@@ -32,7 +32,7 @@ end
 function EFFECT:Render()
 	if self.Alpha < 1 then return end
 	local alpha = self.Alpha + ((self.Alpha/2) * math.sin(CurTime()*((255-self.Alpha)*0.08))) 
-	local color = Color(0,50,255,alpha)
+	local color = Color( 50, 200, 250, alpha)
 	render.SetMaterial(self.LaserMat)
 	render.DrawBeam(self.StartPos,self.EndPos,self.Width*(self.Alpha/64),CurTime()*15 + (self.Length*0.01),CurTime()*15,color)
 	render.SetMaterial(self.EndSprMat)

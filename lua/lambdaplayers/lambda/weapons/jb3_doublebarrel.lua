@@ -14,7 +14,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         offpos = Vector( 0, 0, -3 ),
 
         clip = 2,
-        tracername = "Tracer",
+        tracername = "ubt_tracer",
         damage = 7,
         spread = 0.12,
         rateoffire = 0.3,
