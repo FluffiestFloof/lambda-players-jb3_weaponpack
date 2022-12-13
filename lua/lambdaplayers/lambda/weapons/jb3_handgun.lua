@@ -2,6 +2,10 @@ local random = math.random
 local CurTime = CurTime
 local bullettbl = {}
 
+-- TODO: Make it non lethal
+-- TODO: Make it attack people randomly
+-- TODO: Make it trigger taunt/laugh on target if attack from back
+
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
     jb3_handgun = {

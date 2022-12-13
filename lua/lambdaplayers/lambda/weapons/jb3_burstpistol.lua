@@ -1,5 +1,28 @@
 local IsValid = IsValid
-local bullettbl = {}
+local bullettbl = {
+    Damage = 6,
+    Force = 6,
+    HullSize = 5,
+    Num = 1,
+    TracerName = "ubt_tracer"
+}
+
+local function ShootGun( lambda, wepent, target, sprx, spry )
+    local sprx = sprx or 0
+    local spry = spry or 0
+    bullettbl.Attacker = lambda
+    bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
+    bullettbl.Src = wepent:GetPos()
+    bullettbl.Spread = Vector( 0.05+sprx, 0.05+spry, 0 )
+    bullettbl.IgnoreEntity = lambda
+
+    wepent:EmitSound( "lambdaplayers/weapons/burstpistol/fire1.mp3", 75, 100, 1, CHAN_WEAPON )
+    lambda:HandleMuzzleFlash( 1 )
+    lambda:HandleShellEject( "ShellEject", Vector( 1, 4, 0 ), Angle( -90, 0, 0 ) )
+    wepent:FireBullets( bullettbl )
+    
+    lambda.l_Clip = lambda.l_Clip - 1
+end
 
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
@@ -29,42 +52,16 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             if self.l_Clip <= 0 then self:ReloadWeapon() return end
 
             self.l_WeaponUseCooldown = CurTime() + 0.5
-            
-            bullettbl.Attacker = self
-            bullettbl.Damage = 6
-            bullettbl.Force = 6
-            bullettbl.HullSize = 5
-            bullettbl.Num = 1
-            bullettbl.TracerName = "ubt_tracer"
-            bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
-            bullettbl.Src = wepent:GetPos()
-            bullettbl.Spread = Vector( 0.05, 0.05, 0 )
-            bullettbl.IgnoreEntity = self
 
-            wepent:EmitSound( "lambdaplayers/weapons/burstpistol/fire1.mp3", 75, 100, 1, CHAN_WEAPON )
-            self:HandleMuzzleFlash( 1 )
-            self:HandleShellEject( "ShellEject", Vector( 1, 4, 0 ), Angle( -90, 0, 0 ) )
-            wepent:FireBullets( bullettbl )
-            bullettbl.Spread = Vector( 0.06, 0.2, 0 )
+            ShootGun( self, wepent, target )
 
             self:SimpleTimer(0.05, function()
-                wepent:EmitSound( "lambdaplayers/weapons/burstpistol/fire1.mp3", 75, 100, 1, CHAN_WEAPON )
-                self:HandleMuzzleFlash( 1 )
-                self:HandleShellEject( "ShellEject", Vector( 1, 4, 0 ), Angle( -90, 0, 0 ) )
-                bullettbl.Src = wepent:GetPos()
-                wepent:FireBullets( bullettbl )
-                bullettbl.Spread = Vector( 0.07, 0.3, 0 )
+                ShootGun( self, wepent, target, 0.01, 0.05 )
             end)
 
             self:SimpleTimer(0.1, function()
-                wepent:EmitSound( "lambdaplayers/weapons/burstpistol/fire1.mp3", 75, 100, 1, CHAN_WEAPON )
-                self:HandleMuzzleFlash( 1 )
-                self:HandleShellEject( "ShellEject", Vector( 1, 4, 0 ), Angle( -90, 0, 0 ) )
-                bullettbl.Src = wepent:GetPos()
-                wepent:FireBullets( bullettbl )
+                ShootGun( self, wepent, target, 0.03, 0.15 )
             end)
-
-            self.l_Clip = self.l_Clip - 3
 
             self:RemoveGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL )
             self:AddGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL )
