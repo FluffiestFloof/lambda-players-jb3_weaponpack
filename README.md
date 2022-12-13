@@ -1,7 +1,6 @@
 # Lambda Players - Jabroni Brawl: Episode 3 Weapon Pack
 Adds some weapons from Jabroni Brawl: Episode 3 for the [Lambda Players](https://github.com/IcyStarFrost/Lambda-Players/).<br>
-Not every weapon is implemented and most of them are not 100% accurate.<br>
-**This pack is currently around 150mb due to the custom content.**
+Not every weapon is implemented and most of them are not 100% accurate.
 
 ### Weapons implemented
 Currently implements the following weapons;
