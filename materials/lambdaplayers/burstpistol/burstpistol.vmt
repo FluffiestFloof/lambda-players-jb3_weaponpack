@@ -6,7 +6,8 @@ VertexLitGeneric
 	$normalmapalphaenvmapmask 1
 	$envmaptint "[0.70 0.70 0.70]"
 	$envmapfresnel 1
-
+    
+    $emissiontexture "lambdaplayers/burstpistol/burstpistol_emission"
 	$model 1
 	$mraotexture "lambdaplayers/burstpistol/burstpistol_mrao"
 }
