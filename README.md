@@ -19,5 +19,7 @@ Currently implements the following weapons;
 - Rocket Crowbar
 - Scoped Knife
 - Single Barrel Shotgun
+- Lightgun
+- Golden Gun
 
 ![jb3](https://user-images.githubusercontent.com/9823203/207100010-c7dbe259-f75e-43ee-bf61-53aa674d6bfd.png)
