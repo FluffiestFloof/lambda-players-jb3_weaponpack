@@ -1,5 +1,5 @@
 local IsValid = IsValid
-local bullettbl = {
+local bulletInfo = {
     Damage = 6,
     Force = 6,
     HullSize = 5,
@@ -10,16 +10,16 @@ local bullettbl = {
 local function ShootGun( lambda, wepent, target, sprx, spry )
     local sprx = sprx or 0
     local spry = spry or 0
-    bullettbl.Attacker = lambda
-    bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
-    bullettbl.Src = wepent:GetPos()
-    bullettbl.Spread = Vector( 0.05+sprx, 0.05+spry, 0 )
-    bullettbl.IgnoreEntity = lambda
+    bulletInfo.Attacker = lambda
+    bulletInfo.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
+    bulletInfo.Src = wepent:GetPos()
+    bulletInfo.Spread = Vector( 0.05+sprx, 0.05+spry, 0 )
+    bulletInfo.IgnoreEntity = lambda
 
     wepent:EmitSound( "lambdaplayers/weapons/burstpistol/fire1.mp3", 75, 100, 1, CHAN_WEAPON )
     lambda:HandleMuzzleFlash( 1 )
     lambda:HandleShellEject( "ShellEject", Vector( 1, 4, 0 ), Angle( -90, 0, 0 ) )
-    wepent:FireBullets( bullettbl )
+    wepent:FireBullets( bulletInfo )
     
     lambda.l_Clip = lambda.l_Clip - 1
 end

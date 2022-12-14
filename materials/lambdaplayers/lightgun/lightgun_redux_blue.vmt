@@ -1,20 +1,20 @@
 VertexLitGeneric
 {
-	$basetexture "lambdaplayers/plasmagun/gun_basecolor"
-	$bumpmap "lambdaplayers/plasmagun/gun_normal"
+	$basetexture "lambdaplayers/lightgun/albedo_blue"
+	$bumpmap "lambdaplayers/lightgun/normal"
 
 	$envmap "env_cubemap"
-	$normalmapalphaenvmapmask 1
+	$basealphaenvmapmask 1
 	$envmaptint "[0.70 0.70 0.70]"
 	$envmapfresnel 1
 
 	$phong 1
 	$phongfresnelranges "[0.2 0.5 3]"
 	$phongalbedotint 1
-	$phongexponent 85
+	$phongexponent 5
 	$phongboost 19
 	$phongalbedoboost 170
 
 	$model 1
-	$mraotexture "lambdaplayers/plasmagun/gun_mrao"
+	$mraotexture "lambdaplayers\lightgun\mrao"
 }

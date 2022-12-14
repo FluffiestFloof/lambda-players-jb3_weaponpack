@@ -27,7 +27,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             local spawnAttach = wepent:GetAttachment(2)
             local targetAng = ( target:WorldSpaceCenter() - wepent:GetPos() ):Angle()
 
-            wepent:EmitSound( "lambdaplayers/weapons/nailgun/shoot.mp3", 80 )
+            wepent:EmitSound( "lambdaplayers/weapons/nailgun/shoot.mp3", 80, 100, 1, CHAN_WEAPON )
             nail:SetPos( wepent:GetAttachment(2).Pos + targetAng:Forward() * 18 + targetAng:Up() * 5 + targetAng:Right() * -1.5 )
             nail:SetAngles( ( target:WorldSpaceCenter() - nail:GetPos() ):Angle() )
             nail:SetOwner( self )

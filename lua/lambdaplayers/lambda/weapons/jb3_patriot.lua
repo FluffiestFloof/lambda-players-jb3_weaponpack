@@ -1,6 +1,6 @@
 local random = math.random
 local CurTime = CurTime
-local bullettbl = {}
+local bulletInfo = {}
 
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
@@ -21,22 +21,22 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         reloadanimspeed = 0.85,
 
         OnEquip = function( lambda, wepent )
-            wepent:EmitSound( "lambdaplayers/weapons/patriot/patriotdeploy.mp3" )
+            wepent:EmitSound( "lambdaplayers/weapons/patriot/patriotdeploy.mp3", 75, 100, 1, CHAN_WEAPON )
         end,
 
         callback = function( self, wepent, target )
             if self.l_Clip <= 0 then self:ReloadWeapon() return end
             
-            bullettbl.Attacker = self
-            bullettbl.Damage = 3
-            bullettbl.Force = 3
-            bullettbl.HullSize = 5
-            bullettbl.Num = 1
-            bullettbl.TracerName = "ubt_tracer"
-            bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
-            bullettbl.Src = wepent:GetPos()
-            bullettbl.Spread = Vector( 0.15, 0.15, 0 )
-            bullettbl.IgnoreEntity = self
+            bulletInfo.Attacker = self
+            bulletInfo.Damage = 3
+            bulletInfo.Force = 3
+            bulletInfo.HullSize = 5
+            bulletInfo.Num = 1
+            bulletInfo.TracerName = "ubt_tracer"
+            bulletInfo.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
+            bulletInfo.Src = wepent:GetPos()
+            bulletInfo.Spread = Vector( 0.15, 0.15, 0 )
+            bulletInfo.IgnoreEntity = self
             
             self.l_WeaponUseCooldown = CurTime() + 0.1
 
@@ -48,7 +48,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             self:HandleMuzzleFlash( 1 )
             self:HandleShellEject( "RifleShellEject", Vector( -2, 5, 0 ), Angle( 0, 0, -180 ) )
 
-            wepent:FireBullets( bullettbl )
+            wepent:FireBullets( bulletInfo )
 
             return true
         end,

@@ -1,6 +1,6 @@
 local random = math.random
 local CurTime = CurTime
-local bullettbl = {}
+local bulletInfo = {}
 
 -- TODO: Make it non lethal
 -- TODO: Make it attack people randomly
@@ -31,27 +31,27 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         callback = function( self, wepent, target )
             if self.l_Clip <= 0 then self:ReloadWeapon() return end
             
-            bullettbl.Attacker = self
-            bullettbl.Damage = 25
-            bullettbl.Force = 25
-            bullettbl.HullSize = 5
-            bullettbl.Num = 1
-            bullettbl.TracerName = "none"
-            bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
-            bullettbl.Src = wepent:GetPos()
-            bullettbl.Spread = Vector( 0.15, 0.15, 0 )
-            bullettbl.IgnoreEntity = self
+            bulletInfo.Attacker = self
+            bulletInfo.Damage = 25
+            bulletInfo.Force = 25
+            bulletInfo.HullSize = 5
+            bulletInfo.Num = 1
+            bulletInfo.TracerName = "nil"
+            bulletInfo.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
+            bulletInfo.Src = wepent:GetPos()
+            bulletInfo.Spread = Vector( 0.15, 0.15, 0 )
+            bulletInfo.IgnoreEntity = self
             
             self.l_WeaponUseCooldown = CurTime() + 0.8
 
-            wepent:EmitSound( "lambdaplayers/weapons/handgun/shoot"..random( 1, 2 )..".mp3", 80 )
+            wepent:EmitSound( "lambdaplayers/weapons/handgun/shoot"..random( 1, 2 )..".mp3", 80, 100, 1, CHAN_WEAPON )
 
             self:RemoveGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL )
             self:AddGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL )
 
             self.l_Clip = self.l_Clip - 1
 
-            wepent:FireBullets( bullettbl )
+            wepent:FireBullets( bulletInfo )
 
             return true
         end,

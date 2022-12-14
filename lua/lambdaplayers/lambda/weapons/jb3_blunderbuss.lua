@@ -34,7 +34,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
             self.l_WeaponUseCooldown = CurTime() + 3
 
-            wepent:EmitSound( "lambdaplayers/weapons/blunderbuss/fire.mp3", 80 )
+            wepent:EmitSound( "lambdaplayers/weapons/blunderbuss/fire.mp3", 80, 100, 1, CHAN_WEAPON )
 
             self:RemoveGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_CROSSBOW )
             self:AddGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_CROSSBOW )

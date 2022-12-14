@@ -2,8 +2,7 @@ local random = math.random
 local TraceLine = util.TraceLine
 local util_Effect = util.Effect
 local CurTime = CurTime
-local bullettbl = {}
-local tracetbl = {}
+local bulletInfo = {}
 
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
@@ -24,58 +23,53 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         reloadanimspeed = 0.85,
 
         callback = function( self, wepent, target )
-            wepent:EmitSound( "npc/turret_floor/click1.wav", 80 )
-            self:SimpleTimer( 1, function()
-                if !IsValid( target ) then return end
-                bullettbl.Attacker = self
-                bullettbl.Damage = 9000
-                bullettbl.Force = 1
-                bullettbl.HullSize = 5
-                bullettbl.Num = 1
-                bullettbl.AmmoType = "AR2AltFire"
-                bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
-                bullettbl.Src = wepent:GetPos()
-                bullettbl.Spread = Vector( 0, 0, 0 ) -- Yep, they don't miss.
-                bullettbl.IgnoreEntity = self
+            self.l_WeaponUseCooldown = CurTime() + 3
 
-                local muzzle = wepent:GetAttachment( 1 )
-
-                tracetbl.start = muzzle.Pos
-                tracetbl.endpos = target:WorldSpaceCenter()
-                tracetbl.filter = self
+            bulletInfo.Attacker = self
+            bulletInfo.Damage = 9000
+            bulletInfo.Force = 1
+            bulletInfo.HullSize = 5
+            bulletInfo.Num = 1
+            bulletInfo.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
+            bulletInfo.Src = wepent:GetPos()
+            bulletInfo.Spread = Vector( 0.08, 0.08, 0 )
+            bulletInfo.IgnoreEntity = self
+            bulletInfo.Callback = function( attacker, trace, dmginfo )
+                dmginfo:SetDamageType( DMG_DISSOLVE ) 
                 
-                local result = TraceLine( tracetbl )
+                local muzzle = wepent:GetAttachment( 1 )
 
                 local effect = EffectData()
                     effect:SetStart( muzzle.Pos )
-                    effect:SetOrigin( result.HitPos )
+                    effect:SetOrigin( trace.HitPos )
                     effect:SetEntity( wepent )
                     effect:SetScale( 4000 )
                 util_Effect( "ToolTracer", effect, true, true)
 
                 local effect = EffectData()
-                    effect:SetStart( result.HitPos )
-                    effect:SetOrigin( result.HitPos )
-                    effect:SetEntity( result.Entity )
-                    effect:SetNormal( result.HitNormal )
+                    effect:SetStart( trace.HitPos )
+                    effect:SetOrigin( trace.HitPos )
+                    effect:SetEntity( trace.Entity )
+                    effect:SetNormal( trace.HitNormal )
                 util_Effect( "selection_indicator", effect, true, true)
 
-                local effect = EffectData()
-                    effect:SetOrigin( target:WorldSpaceCenter() )
-                    effect:SetMagnitude( 1 )
-                    effect:SetScale( 2 )
-                    effect:SetRadius( 4 )
-                    effect:SetEntity( target )
-                util_Effect( "entity_remove", effect, true, true )
+                if trace.Entity == target then
+                    local effect = EffectData()
+                        effect:SetOrigin( target:WorldSpaceCenter() )
+                        effect:SetMagnitude( 1 )
+                        effect:SetScale( 2 )
+                        effect:SetRadius( 4 )
+                        effect:SetEntity( target )
+                    util_Effect( "entity_remove", effect, true, true )
+                end
+            end
 
-                wepent:EmitSound( "weapons/airboat/airboat_gun_lastshot" .. random( 1, 2 ) .. ".wav", 80 )
+            wepent:EmitSound( "weapons/airboat/airboat_gun_lastshot" .. random( 1, 2 ) .. ".wav", 80, 100, 1, CHAN_WEAPON )
 
-                self:RemoveGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_REVOLVER )
-                self:AddGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_REVOLVER )
+            self:RemoveGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_REVOLVER )
+            self:AddGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_REVOLVER )
 
-                wepent:FireBullets( bullettbl )
-            end )
-            self.l_WeaponUseCooldown = CurTime() + 5
+            wepent:FireBullets( bulletInfo )
 
             return true
         end,

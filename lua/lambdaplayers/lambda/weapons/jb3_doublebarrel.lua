@@ -34,7 +34,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         },
 
         OnEquip = function( lambda, wepent )
-            wepent:EmitSound( "lambdaplayers/weapons/doublebarrel/deploy_2.mp3" )
+            wepent:EmitSound( "lambdaplayers/weapons/doublebarrel/deploy_2.mp3", 75, 100, 1, CHAN_WEAPON )
         end,
         
         OnReload = function( self, wepent )

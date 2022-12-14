@@ -1,6 +1,6 @@
 local random = math.random
 local CurTime = CurTime
-local bullettbl = {}
+local bulletInfo = {}
 
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
@@ -33,30 +33,30 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             self:SimpleTimer( 0.5, function() -- Aim that beast
                 if !IsValid( target ) then return end
 
-                wepent:EmitSound( "lambdaplayers/weapons/obrez/shoot.mp3", 80 )
+                wepent:EmitSound( "lambdaplayers/weapons/obrez/shoot.mp3", 80, 100, 1, CHAN_WEAPON )
 
                 self:HandleMuzzleFlash( 1 )
 
-                bullettbl.Attacker = self
-                bullettbl.Damage = 50 -- It stings
-                bullettbl.Force = 50
-                bullettbl.HullSize = 5
-                bullettbl.Num = 1
-                bullettbl.TracerName = "ubt_tracer"
-                bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
-                bullettbl.Src = wepent:GetPos()
-                bullettbl.Spread = Vector( 0.07, 0.07, 0 )
-                bullettbl.IgnoreEntity = self
-                wepent:FireBullets( bullettbl )
+                bulletInfo.Attacker = self
+                bulletInfo.Damage = 50 -- It stings
+                bulletInfo.Force = 50
+                bulletInfo.HullSize = 5
+                bulletInfo.Num = 1
+                bulletInfo.TracerName = "ubt_tracer"
+                bulletInfo.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
+                bulletInfo.Src = wepent:GetPos()
+                bulletInfo.Spread = Vector( 0.07, 0.07, 0 )
+                bulletInfo.IgnoreEntity = self
+                wepent:FireBullets( bulletInfo )
 
                 self:RemoveGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_REVOLVER )
                 self:AddGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_REVOLVER )
                 
                 self:SimpleTimer( 1, function()
-                    wepent:EmitSound( "lambdaplayers/weapons/obrez/boltback.mp3", 75, 100, 1, CHAN_WEAPON )
+                    wepent:EmitSound( "lambdaplayers/weapons/obrez/boltback.mp3", 80, 100, 1, CHAN_WEAPON )
                     self:HandleShellEject( "RifleShellEject", Vector(), Angle(-180, 0, 0) )
                     self:SimpleTimer( 0.6, function()
-                        wepent:EmitSound( "lambdaplayers/weapons/obrez/boltforward.mp3", 75, 100, 1, CHAN_WEAPON )
+                        wepent:EmitSound( "lambdaplayers/weapons/obrez/boltforward.mp3", 80, 100, 1, CHAN_WEAPON )
                     end)
                 end)
 

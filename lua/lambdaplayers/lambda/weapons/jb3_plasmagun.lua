@@ -2,7 +2,7 @@ local random = math.random
 local CurTime = CurTime
 local util_Effect = util.Effect
 local Clamp = math.Clamp
-local bullettbl = {}
+local bulletInfo = {}
 
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
@@ -36,22 +36,32 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             if CurTime() > wepent.ResetPew then
                 wepent.FirstShot = true
                 wepent.BulletSpent = 0
-                wepent:EmitSound( "lambdaplayers/weapons/plasmaar/lastshot.mp3", 85 )
+                wepent:EmitSound( "lambdaplayers/weapons/plasmaar/lastshot.mp3", 85, 100, 1, CHAN_WEAPON )
             end
             wepent.BulletSpent = wepent.BulletSpent + 1
 
             local spred = Clamp( (  wepent.BulletSpent * 0.001 ) , 0.05, 0.2 )
 
-            bullettbl.Attacker = self
-            bullettbl.Damage = 2
-            bullettbl.Force = 2
-            bullettbl.HullSize = 5
-            bullettbl.Num = 1
-            bullettbl.TracerName = "demon_tracer_laser"
-            bullettbl.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
-            bullettbl.Src = wepent:GetPos()
-            bullettbl.Spread = Vector( spred, spred, 0 )
-            bullettbl.IgnoreEntity = self
+            bulletInfo.Attacker = self
+            bulletInfo.Damage = 2
+            bulletInfo.Force = 2
+            bulletInfo.HullSize = 5
+            bulletInfo.Num = 1
+            bulletInfo.TracerName = "plasmagun_laser"
+            bulletInfo.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
+            bulletInfo.Src = wepent:GetPos()
+            bulletInfo.Spread = Vector( spred, spred, 0 )
+            bulletInfo.IgnoreEntity = self
+            bulletInfo.Callback = function( attacker, trace, dmginfo )
+                dmginfo:SetDamageType( DMG_DISSOLVE )
+
+                local effect = EffectData()
+                    effect:SetStart( trace.HitPos )
+                    effect:SetOrigin( trace.HitPos )
+                    effect:SetEntity( trace.Entity )
+                    effect:SetNormal( trace.HitNormal )
+                util_Effect( "HL1GaussWallImpact1", effect, true, true)
+            end
             
             self.l_WeaponUseCooldown = CurTime() + Clamp( ( 1 / ( wepent.BulletSpent ) ), 0.004, 0.4 )
 
@@ -62,7 +72,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             
             self:HandleMuzzleFlash( 5 )
 
-            wepent:FireBullets( bullettbl )
+            wepent:FireBullets( bulletInfo )
 
             wepent.ResetPew = self.l_WeaponUseCooldown + 0.2
 

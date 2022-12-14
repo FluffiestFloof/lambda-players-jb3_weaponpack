@@ -32,7 +32,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
                 Effect( "Explosion", effectData, true, true )
 
                 BlastDamage( wepent, self, wepent:GetPos(), 300, 20 )
-                wepent:EmitSound( "BaseExplosionEffect.Sound" , 90 )
+                wepent:EmitSound( "BaseExplosionEffect.Sound", 85, 100, 1, CHAN_WEAPON )
 
                 local dmginfo = DamageInfo()
                 dmginfo:SetDamage( 10 )
@@ -42,7 +42,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
                 dmginfo:SetDamageForce( ( target:WorldSpaceCenter() - self:WorldSpaceCenter() ):GetNormalized() * 10 )
                 target:TakeDamageInfo( dmginfo )
 
-                wepent:EmitSound( "Weapon_Crowbar.Melee_Hit", 70 )
+                wepent:EmitSound( "Weapon_Crowbar.Melee_Hit", 80, 100, 1, CHAN_WEAPON )
             end)
 
             return true
