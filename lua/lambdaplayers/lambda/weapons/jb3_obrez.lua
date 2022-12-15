@@ -1,4 +1,3 @@
-local random = math.random
 local CurTime = CurTime
 local bulletInfo = {}
 

@@ -1,4 +1,3 @@
-local IsValid = IsValid
 local bulletInfo = {
     Damage = 6,
     Force = 6,

@@ -1,6 +1,4 @@
-local random = math.random
 local ents_Create = ents.Create
-local util_BlastDamage = util.BlastDamage
 local CurTime = CurTime
 
 local function ShootRocket( lambda, wepent, target, posup, posright )

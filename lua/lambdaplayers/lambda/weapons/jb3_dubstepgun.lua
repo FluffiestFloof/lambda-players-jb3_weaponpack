@@ -1,5 +1,4 @@
 local random = math.random
-local TraceLine = util.TraceLine
 local util_Effect = util.Effect
 local util_ScreenShake = util.ScreenShake
 local bit_bor = bit.bor

@@ -1,5 +1,3 @@
-local IsValid = IsValid
-
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
     jb3_scopedknife = {

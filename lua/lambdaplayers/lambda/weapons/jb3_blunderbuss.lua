@@ -1,11 +1,9 @@
 local IsValid = IsValid
 local CurTime = CurTime
-local util_BlastDamage = util.BlastDamage
 local random = math.random
 local ents_Create = ents.Create
 
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
--- TO FIX OR IGNORE, KINDA WORKS
 
     jb3_blunderbuss = {
         model = "models/lambdaplayers/blunderbuss/w_blunderbuss.mdl",
@@ -29,7 +27,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         },
 
         callback = function( self, wepent, target )
-            local ent = ents.Create( "prop_physics" )
+            local ent = ents_Create( "prop_physics" )
             if !IsValid( ent ) then return end
 
             self.l_WeaponUseCooldown = CurTime() + 3

@@ -1,6 +1,3 @@
-local random = math.random
-local TraceLine = util.TraceLine
-local util_Effect = util.Effect
 local CurTime = CurTime
 local bulletInfo = {}
 
@@ -49,6 +46,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
                 bulletInfo.Src = wepent:GetPos()
                 bulletInfo.Spread = Vector( 0.08, 0.08, 0 )
                 bulletInfo.IgnoreEntity = self
+                
                 wepent:FireBullets( bulletInfo )
 
                 self:RemoveGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2 )

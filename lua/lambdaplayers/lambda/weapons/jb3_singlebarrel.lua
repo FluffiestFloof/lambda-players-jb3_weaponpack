@@ -1,6 +1,3 @@
-local CurTime = CurTime
-local random = math.random
-
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
     jb3_singlebarrel = {
