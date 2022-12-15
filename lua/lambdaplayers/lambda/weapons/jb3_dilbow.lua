@@ -29,7 +29,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             self.l_WeaponUseCooldown = CurTime() + 0.75
 
             bulletInfo.Attacker = self
-            bulletInfo.Damage = 15000
+            bulletInfo.Damage = 5000
             bulletInfo.Force = 1
             bulletInfo.HullSize = 5
             bulletInfo.Num = 1

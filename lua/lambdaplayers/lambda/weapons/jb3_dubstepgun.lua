@@ -90,12 +90,12 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
                 local range = self:GetRangeTo( ent )
                 
                 local info = DamageInfo()
-                    info:SetAttacker( self )
-                    info:SetInflictor( wepent )
-                    info:SetDamage( 25 - (0.08*range) )
-                    info:SetDamageType( bit_bor( DMG_BLAST, DMG_CLUB ) )
-                    info:SetDamagePosition( wepent:GetPos() )
-                    ent:TakeDamageInfo( info )
+                info:SetAttacker( self )
+                info:SetInflictor( wepent )
+                info:SetDamage( 25 - (0.08*range) )
+                info:SetDamageType( DMG_DIRECT )
+                info:SetDamagePosition( wepent:GetPos() )
+                ent:TakeDamageInfo( info )
             end
 
             self:RemoveGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_PHYSGUN )

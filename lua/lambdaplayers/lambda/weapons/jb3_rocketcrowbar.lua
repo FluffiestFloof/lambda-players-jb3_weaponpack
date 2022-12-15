@@ -25,7 +25,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             self:AddGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_MELEE )
 
             self:SimpleTimer( 0.1, function()
-                if !IsValid( target ) or self:GetRangeSquaredTo( target ) > ( 55 * 55 ) then return end
+                if !IsValid( target ) or !self:IsInRange( target, 55 ) then return end
 
                 local effectData = EffectData()
                 effectData:SetOrigin( wepent:GetPos() )
