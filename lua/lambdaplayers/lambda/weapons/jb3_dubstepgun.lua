@@ -88,7 +88,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             local nearby = self:FindInSphere( nil, 300, function( ent ) return IsCharacter( ent ) end )
             for k, ent in ipairs( nearby ) do
                 local range = self:GetRangeTo( ent )
-                print(range)
+                
                 local info = DamageInfo()
                     info:SetAttacker( self )
                     info:SetInflictor( wepent )
