@@ -61,6 +61,16 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
                         effect:SetRadius( 4 )
                         effect:SetEntity( target )
                     util_Effect( "entity_remove", effect, true, true )
+
+                    -- Simulate deleting the entity by preventing ragdoll
+                    if target:IsPlayer() then
+                        self:Hook( "PlayerDeath", "JB3RemoverTool", function( victim, inflictor, attacker )
+                            if target == victim and wepent == inflictor and self == attacker then
+                                target:GetRagdollEntity():Remove()
+                            end
+                            return false
+                        end)
+                    end
                 end
             end
 
