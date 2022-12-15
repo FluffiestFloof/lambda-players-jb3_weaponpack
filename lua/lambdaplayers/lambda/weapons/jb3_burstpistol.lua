@@ -11,7 +11,6 @@ local function ShootGun( lambda, wepent, target, sprx, spry )
     local sprx = sprx or 0
     local spry = spry or 0
     bulletInfo.Attacker = lambda
-    bulletInfo.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
     bulletInfo.Src = wepent:GetPos()
     bulletInfo.Spread = Vector( 0.05+sprx, 0.05+spry, 0 )
     bulletInfo.IgnoreEntity = lambda
@@ -36,7 +35,6 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         keepdistance = 325,
         attackrange = 2000,
 
-
         clip = 15,
 
         reloadtime = 1.5,
@@ -52,6 +50,8 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             if self.l_Clip <= 0 then self:ReloadWeapon() return end
 
             self.l_WeaponUseCooldown = CurTime() + 0.5
+
+            bulletInfo.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
 
             ShootGun( self, wepent, target )
 

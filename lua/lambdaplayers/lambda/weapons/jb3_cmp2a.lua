@@ -12,7 +12,6 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         keepdistance = 325,
         attackrange = 2000,
 
-
         clip = 30,
         tracername = "ubt_tracer",
         damage = 5,

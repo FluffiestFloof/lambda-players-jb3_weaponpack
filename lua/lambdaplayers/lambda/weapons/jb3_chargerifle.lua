@@ -18,7 +18,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
         clip = 50, -- 50 max shots then should switch but eh
 
-        -- Stop sound on death
+        -- Prevent the speed debuff from carrying on if dies
         OnDamage = function( lambda, wepent, dmginfo )
             if IsValid( lambda ) and dmginfo:GetDamage() > lambda:Health() then
                 lambda.l_WeaponSpeedMultiplier = 0
