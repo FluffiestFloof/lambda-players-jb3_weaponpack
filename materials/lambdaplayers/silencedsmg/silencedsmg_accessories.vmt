@@ -1,0 +1,13 @@
+"VertexlitGeneric"
+{
+	
+	"$basetexture" "lambdaplayers/silencedsmg/silencedsmg_Accessories"
+	"$bumpmap" "lambdaplayers/silencedsmg/silencedsmg_Accessories_Normal"
+	"$normalmapalphaenvmapmask" "1"
+
+    "$phong" "0"
+    "$phongexponent" "7"
+    "$phongboost" "2.0"
+    "$phongfresnelranges" "[0.0 0.5 1.0]"
+
+}

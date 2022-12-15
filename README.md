@@ -4,23 +4,27 @@ Not every weapon is implemented and most of them are not 100% accurate.
 
 ### Weapons implemented
 Currently implements the following weapons;
-- Melon Blunderbuss
 - Burst Pistol
 - Charge Rifle
 - CMP-2A
 - Double Barrel Shotgun
+- Dubstep Gun
+- Dilbow
+- Golden Gun
 - Hand Gun
+- Light Gun
+- Melon Blunderbuss
 - Nailgun
 - Obrez
-- XM16E1
 - Plasma Rifle
+- Pistol
 - Quad Rocket Launcher
 - Remover Tool
 - Rocket Crowbar
 - Scoped Knife
 - Single Barrel Shotgun
-- Light Gun
-- Golden Gun
+- Silenced SMG
 - Umbrella
+- XM16E1
 
 ![jb3](https://user-images.githubusercontent.com/9823203/207100010-c7dbe259-f75e-43ee-bf61-53aa674d6bfd.png)

@@ -1,0 +1,26 @@
+VertexLitGeneric
+{
+	$basetexture "lambdaplayers/pistol/pistol_albedo"
+	$bumpmap "lambdaplayers/pistol/pistol_normal"
+	$surfaceprop Metal
+
+	$detail "models/blood"
+	$detailscale 2.6
+	$detailblendfactor 0
+
+	$envmap "env_cubemap"
+	$basealphaenvmapmask 1
+	$envmaptint "[0.70 0.70 0.70]"
+	$envmapfresnel 1
+
+	$phong 1
+	$phongfresnelranges "[0.2 0.5 3]"
+	$phongalbedotint 1
+	$phongexponent 5
+	$phongboost 19
+	$phongalbedoboost 170
+
+	$detailamount 0
+	$model 1
+	$mraotexture "lambdaplayers/pistol/pistol_mrao"
+}

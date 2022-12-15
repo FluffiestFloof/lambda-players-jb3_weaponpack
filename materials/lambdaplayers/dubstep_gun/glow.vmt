@@ -1,0 +1,17 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "lambdaplayers/dubstep_gun/glow"
+	"$bumpmap" "lambdaplayers/dubstep_gun/glow_n"
+	"$selfillum" "1"
+	"$phong" "1"
+	"$phongexponent" "5"
+	"$phongboost" "5"	
+	"$phongfresnelranges"	"[.3 1 8]"
+	"$halflambert" "0"
+	
+	// Rim lighting parameters
+	"$rimlight" "1"	
+	"$rimlightexponent" "5"										
+	"$rimlightboost" "1"		
+	
+}
