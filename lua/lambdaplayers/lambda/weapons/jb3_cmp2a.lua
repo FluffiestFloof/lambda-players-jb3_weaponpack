@@ -19,7 +19,6 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         shelleject = "ShellEject",
         shelloffpos = Vector( 0, 3, 10 ),
         shelloffang = Angle( -180, 0, 0 ),
-        bulletcount = 1,
         attackanim = ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL,
         attacksnd = "lambdaplayers/weapons/cmp2a/fire*4*.mp3",
 

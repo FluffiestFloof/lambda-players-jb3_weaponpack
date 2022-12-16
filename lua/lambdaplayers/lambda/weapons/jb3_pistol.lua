@@ -10,7 +10,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         killicon = "lambdaplayers/killicons/icon_jb3_pistol",
         bonemerge = true,
         keepdistance = 500,
-        attackrange = 2500,
+        attackrange = 2250,
 
         clip = 15,
         tracername = "ubt_tracer",
@@ -21,7 +21,6 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
         shelleject = "ShellEject",
         shelloffpos = Vector( -3, 5, 0 ),
         shelloffang = Angle( -180, 0, 0 ),
-        bulletcount = 1,
         attackanim = ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL,
         attacksnd = "lambdaplayers/weapons/pistol/fire1.mp3",
 
