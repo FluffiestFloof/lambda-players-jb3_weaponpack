@@ -4,12 +4,12 @@ local bulletInfo = {}
 
 table.Merge( _LAMBDAPLAYERSWEAPONS, {
 
-    jb3_patriot = {
+    jb3_xm16e1 = {
         model = "models/lambdaplayers/patriot/w_patriot.mdl",
         origin = "Jabroni Brawl: Episode 3",
         prettyname = "XM16E1",
         holdtype = "ar2",
-        killicon = "lambdaplayers/killicons/icon_jb3_patriot",
+        killicon = "lambdaplayers/killicons/icon_jb3_xm16e1",
         bonemerge = true,
         keepdistance = 300,
         attackrange = 1500,
