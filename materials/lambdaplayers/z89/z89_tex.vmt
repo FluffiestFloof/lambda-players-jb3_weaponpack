@@ -1,0 +1,22 @@
+VertexLitGeneric
+{
+	$basetexture "lambdaplayers/z89/z89_basetexture"
+	$bumpmap "lambdaplayers/z89/z89_normaltexture"
+	$surfaceprop Weapon
+
+	$envmap "env_cubemap"
+	$normalmapalphaenvmapmask 1
+	$envmaptint "[0.70 0.70 0.70]"
+	$envmapfresnel 1
+
+	$phong 1
+	$phongfresnelranges "[0.2 0.5 3]"
+	$phongalbedotint 1
+	$phongexponent 90
+	$phongboost 19
+	$phongalbedoboost 170
+
+	$emissiontexture "lambdaplayers/z89/z89_emissiontexture"
+	$model 1
+	$mraotexture "lambdaplayers/z89/z89_mraotexture"
+}
