@@ -3,7 +3,7 @@ local CurTime = CurTime
 
 local function ShootRocket( lambda, wepent, target, posup, posright )
     local rocket = ents_Create( "m202_rocket" )
-    if !IsValid( rocket ) then return end
+    if !IsValid( rocket ) or !IsValid( wepent ) or !IsValid( target ) or !IsValid( lambda ) then return end
 
     local spawnAttach = wepent:GetAttachment(2)
     local targetAng = ( target:WorldSpaceCenter() - wepent:GetPos() ):Angle()
