@@ -6,7 +6,7 @@ local bulletInfo = {
     TracerName = "ubt_tracer"
 }
 
-local function ShootGun( lambda, wepent, target, sprx, spry )
+local function ShootGun( lambda, wepent, sprx, spry )
     local sprx = sprx or 0
     local spry = spry or 0
     bulletInfo.Attacker = lambda
@@ -45,21 +45,21 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             { 1.2, "lambdaplayers/weapons/burstpistol/sliderelease.mp3" }
         },
 
-        callback = function( self, wepent, target )
+        callback = function( self, wepent )
             if self.l_Clip <= 0 then self:ReloadWeapon() return end
 
             self.l_WeaponUseCooldown = CurTime() + 0.5
 
             bulletInfo.Dir = ( target:WorldSpaceCenter() - wepent:GetPos() ):GetNormalized()
 
-            ShootGun( self, wepent, target )
+            ShootGun( self, wepent )
 
             self:SimpleTimer(0.05, function()
-                ShootGun( self, wepent, target, 0.01, 0.05 )
+                ShootGun( self, wepent, 0.01, 0.05 )
             end)
 
             self:SimpleTimer(0.1, function()
-                ShootGun( self, wepent, target, 0.03, 0.15 )
+                ShootGun( self, wepent, 0.03, 0.15 )
             end)
 
             self:RemoveGesture( ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL )
