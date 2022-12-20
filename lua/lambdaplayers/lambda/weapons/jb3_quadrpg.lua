@@ -3,14 +3,14 @@ local CurTime = CurTime
 
 local function ShootRocket( lambda, wepent, target, posup, posright )
     local rocket = ents_Create( "m202_rocket" )
-    if !IsValid( rocket ) or !IsValid( wepent ) or !IsValid( target ) or !IsValid( lambda ) then return end
+    if !IsValid( rocket ) or !IsValid( wepent ) or !IsValid( target ) then return end
 
     local spawnAttach = wepent:GetAttachment(2)
     local targetAng = ( target:WorldSpaceCenter() - wepent:GetPos() ):Angle()
     
     wepent:EmitSound( "lambdaplayers/weapons/quadrpg/fire.mp3", 80, 100, 1, CHAN_WEAPON )
     
-    rocket:SetPos( wepent:GetAttachment(2).Pos + targetAng:Up() * posup + targetAng:Right() * posright )
+    rocket:SetPos( spawnAttach.Pos + targetAng:Up() * posup + targetAng:Right() * posright )
     rocket:SetAngles( ( target:WorldSpaceCenter() - rocket:GetPos() ):Angle()+ AngleRand( -2, 2) )
     rocket:SetOwner( lambda )
     rocket:SetAbsVelocity( lambda:GetForward() * 300 + Vector( 0, 0, 128 ) )
