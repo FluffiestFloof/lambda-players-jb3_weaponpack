@@ -45,7 +45,7 @@ table.Merge( _LAMBDAPLAYERSWEAPONS, {
             { 1.2, "lambdaplayers/weapons/burstpistol/sliderelease.mp3" }
         },
 
-        callback = function( self, wepent )
+        callback = function( self, wepent, target )
             if self.l_Clip <= 0 then self:ReloadWeapon() return end
 
             self.l_WeaponUseCooldown = CurTime() + 0.5
