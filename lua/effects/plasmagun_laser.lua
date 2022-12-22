@@ -34,7 +34,8 @@ function EFFECT:Think()
 end
 
 function EFFECT:Render()
-	if self.Alpha < 1 then return end
+	if ( self.Alpha < 1 ) then return end
+	
 	local alpha = self.Alpha + ((self.Alpha/2) * math.sin(CurTime()*((255-self.Alpha)*0.08))) 
 	local color = Color( 50, 200, 250, alpha)
 	render.SetMaterial(self.LaserMat)
