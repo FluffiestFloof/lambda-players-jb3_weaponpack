@@ -1,1 +1,0 @@
-PrecacheParticleSystem("ayykyu_bullettracer")
